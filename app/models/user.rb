@@ -10,8 +10,9 @@ class User < ApplicationRecord
   
   has_many :followers, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followeds, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  has_many :followers, through: :relationship, source: :follower
-  has_many :followeds, through: :relationship, source: :followed
+  
+  has_many :following_users, through: :relationship, source: :follower
+  has_many :follower_users, through: :relationship, source: :followed
   
   has_one_attached :profile_image
 
