@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 
   def search
-    @renge=params[:range]
+    @range=params[:range]
     @word=params[:word]
 
     if @range=="User"
